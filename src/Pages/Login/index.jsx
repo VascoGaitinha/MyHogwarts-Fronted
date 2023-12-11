@@ -25,7 +25,7 @@ function LoginPage(){
             .then((response)=>{
                 storeToken(response.data.authToken);
                 authenticateUser();
-                navigate('/');
+                navigate('/homepage');
             })
             .catch((error)=>{
                 const errorDescription = error; 
