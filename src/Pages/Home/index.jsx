@@ -26,8 +26,7 @@ function HomePage() {
           setLoading(false);
         });
     } else {
-      // Handle the case where user or user._id is not available
-      setLoading(false);
+      setLoading(true);
     }
   }, [user]); 
 
@@ -38,7 +37,7 @@ function HomePage() {
       loggedUser?.firstLoggin ? <ProfilePopOver loggedUser={loggedUser} />
       :
       <h1 className="text-3xl font-bold underline">
-      Welcome {loggedUser.name}
+      Homepage
       <img src={imgUrl}></img>
     </h1>}
       <button onClick={logOut}>Log Out</button>

@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import {Popover, PopoverTrigger, PopoverContent, Button, Input} from "@nextui-org/react";
 import { useState } from "react";
 import {Select, SelectSection, SelectItem} from "@nextui-org/react";
 import teams from "../assets/teams.json"
 import { AuthContext } from "../Context/auth.context";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { PopoverContent, Popover, Input, Button } from "@nextui-org/react";
 
 const ProfilePopOver = (props) => {
 
@@ -69,7 +69,7 @@ const ProfilePopOver = (props) => {
         axios.put(`${BACKEND}/api/users/${loggedUser._id}`, requestBody)
         .then((response)=>{ 
             console.log("done with response:", response.data)
-            navigate('/homepage');
+            window.location.reload()
         })
         .catch((error)=>{ console.log(error)})
     };
