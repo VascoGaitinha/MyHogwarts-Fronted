@@ -28,7 +28,8 @@ function LoginPage(){
                 navigate('/homepage');
             })
             .catch((error)=>{
-                const errorDescription = error; 
+                console.log(error.response.data.message)
+                const errorDescription = error.response.data.message; 
                 setError(errorDescription);
             })
 
@@ -54,4 +55,4 @@ function LoginPage(){
 
 }
 
-export default LoginPage
+export default LoginPage;
