@@ -38,9 +38,7 @@ function HomePage() {
       :
       <h1 className="text-3xl font-bold underline">
       Homepage
-      <img src={imgUrl}></img>
     </h1>}
-      <button onClick={logOut}>Log Out</button>
     </div>
   );
 }

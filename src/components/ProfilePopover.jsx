@@ -34,12 +34,12 @@ const ProfilePopOver = (props) => {
         })
         }       
     
-        const handleFile = async (e) => {
+        const handleFile = async (e, field) => {
             try {
                 if (e.target.files && e.target.files.length > 0) {
                     const convImg = await imgToB64(e.target.files[0]);
                     setForm((prev) => ({
-                        ...prev, ["image"]: convImg
+                        ...prev, [field]: convImg
                     }))
                 }
             } catch (error) {
@@ -60,18 +60,23 @@ const ProfilePopOver = (props) => {
     };  
 
     const handleFormSubmit = (e) => {
-        e.preventDefault();
         const requestBody = form;
-/* 
-        console.log("POSTING", requestBody)
-        console.log("TO", `${BACKEND}/api/users/${loggedUser._id}` ) */
+        const teamId = form.team;
+        const payload = {
+            memberId: loggedUser._id
+        }
 
         axios.put(`${BACKEND}/api/users/${loggedUser._id}`, requestBody)
         .then((response)=>{ 
             console.log("done with response:", response.data)
-            window.location.reload()
         })
         .catch((error)=>{ console.log(error)})
+
+        axios.put(`${BACKEND}/api/teams/${teamId}/adduser`, payload)
+        .then(()=>{
+            console.log("Put with", payload, "to Team")
+        })
+        .catch((error)=> console.log(error))
     };
 
   const content = (
@@ -87,13 +92,14 @@ const ProfilePopOver = (props) => {
             <form onSubmit={(e)=> handleFormSubmit(e)}>
                 <Input value={form.name} label="Name" size="sm" variant="flat" onChange={(e)=>handleTyping(e.target.value, 'name')}/>
                 <Select size="sm" label="Team" onChange={(e)=> handleSelect(e.target.value, "team")}>
-                    {teams.houses.map((team)=>{
+                    {teams.map((team)=>{
                         return(
-                            <SelectItem value={team} key={team}>{team}</SelectItem>
+                            <SelectItem value={team.id} key={team.id}>{team.name}</SelectItem>
                         )
                     })}
                 </Select>
-                <Input type="file" onChange={handleFile}>Profile Picture</Input>
+                <label className="w-full">Profile Picture</label>
+                <input className="file-button" type="file" onChange={(e) => handleFile(e, "image")}/>
                 <Button type="submit" size="sm">Join Us!</Button>
                 <Button size="sm" onClick={()=> navigate('/homepage')}>Skip</Button>
             </form>

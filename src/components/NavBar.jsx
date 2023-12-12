@@ -1,8 +1,8 @@
-import {  Navbar,   NavbarBrand,   NavbarContent,   NavbarItem,   NavbarMenuToggle,  NavbarMenu,  NavbarMenuItem, Avatar, Image} from "@nextui-org/react";
+import {  Navbar,   NavbarBrand,   NavbarContent,   NavbarItem,   NavbarMenuToggle,  NavbarMenu,  NavbarMenuItem, Image} from "@nextui-org/react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../Context/auth.context";
-import {Popover, PopoverTrigger, PopoverContent, Button, Input} from "@nextui-org/react";
+import {Popover, PopoverTrigger, PopoverContent, Button,Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Avatar, User} from "@nextui-org/react";
 import LogInPopover from "./LoginPopOver";
 import SignUpPopover from "./SignUpPopover";
 import axios from "axios";
@@ -42,23 +42,6 @@ export default function NavBar() {
       <NavbarBrand>
         <p className="font-bold text-inherit">ACME</p>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
           <Link href="#">Login</Link>
@@ -84,8 +67,32 @@ export default function NavBar() {
         </NavbarItem>
         ):(
         <NavbarItem style={{display: "flex"}}>
-          <Avatar src="../../public/menu.png" />
-          <Avatar src={loggedUser?.image} />
+          <Dropdown placement="bottom-end">
+            <DropdownTrigger>
+              <Avatar src="/menu.png" />
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Profile Actions" variant="flat">
+              <DropdownItem key="team" className="h-14 gap-2" href='/users/:userId'>
+                {loggedUser?.team?.name}
+              </DropdownItem>
+              <DropdownItem key="settings" className="h-14 gap-2" onAction={logOut}>
+                Logout
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+          <Dropdown placement="bottom-end">
+            <DropdownTrigger>
+              <Avatar src={loggedUser?.image} />
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Profile Actions" variant="flat">
+              <DropdownItem key="profile" className="h-14 gap-2" href='/users/:userId'>
+                Profile
+              </DropdownItem>
+              <DropdownItem key="logout" className="h-14 gap-2" onAction={logOut}>
+                Logout
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </NavbarItem>
         )}
       </NavbarContent>

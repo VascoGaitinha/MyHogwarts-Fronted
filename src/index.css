@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.landing{
+    display: flex;
+
+}
+
+.landing-image-div{
+    background: none;
+    height:100vh;
+    width: 60%;
+    background-image: url('../public/f449d5c2b4f0b917b946d698272cd7ea.jpg');
+    background-size: 80% 100vh;
+    background-repeat: no-repeat;
+}
+
+.landing-form{
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+}
+.landing-hr{
+    width: 80%;
+}
+
+.landing-form > * {
+    margin:10px;
+}
+
+.file-button{
+    width: 100%;
+    padding: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

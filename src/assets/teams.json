@@ -1,8 +1,30 @@
-{
-    "houses": [
-        "Gryffindor",
-        "Slytherin",
-        "Hufflepuff",
-        "Ravenclaw"
-    ]
-}
+[
+    {
+        "name": "Gryffindor",
+        "id": "65781ce44c600e2af1f2b5d4",
+        "logo":"/Gryffindor-logo.png",
+        "banner":"/Gryffindor-banner.png",
+        "badge":"/Gryffindor-badge.png"
+    },
+    {
+        "name": "Slytherin",
+        "id": "65781cf04c600e2af1f2b5d6",
+        "logo":"/Slytherin-logo.png",
+        "banner":"/Slytherin-banner.png",
+        "badge":"/Slytherin-badge.png"
+    },
+    {
+        "name": "Hufflepuff",
+        "id": "65781cf74c600e2af1f2b5d8",
+        "logo":"/Hufflepuff-logo.png",
+        "banner":"/Hufflepuff-banner.png",
+        "badge":"/Hufflepuff-badge.png"
+    },
+    {
+        "name": "Ravenclaw",
+        "id": "65781cd64c600e2af1f2b5d2",
+        "logo":"/Ravenclaw-logo.png",
+        "banner":"/Ravenclaw-banner.png",
+        "badge":"/Ravenclaw-badge.png"
+    }
+]
