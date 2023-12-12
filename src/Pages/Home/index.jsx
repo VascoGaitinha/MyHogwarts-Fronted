@@ -9,7 +9,6 @@ function HomePage() {
   const[loading,setLoading] = useState(true);
   const[loggedUser, setLoggedUser] = useState(null);
   const[imgUrl, setImgUrl] = useState("");
-  const navigate = useNavigate();
   
   
   useEffect(() => {

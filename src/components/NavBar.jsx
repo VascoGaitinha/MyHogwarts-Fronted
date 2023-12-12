@@ -6,6 +6,7 @@ import {Popover, PopoverTrigger, PopoverContent, Button,Dropdown, DropdownTrigge
 import LogInPopover from "./LoginPopOver";
 import SignUpPopover from "./SignUpPopover";
 import axios from "axios";
+import teams from '../assets/teams.json'
 
 
 
@@ -38,54 +39,37 @@ export default function NavBar() {
     }, [user]); 
 
   return (
-    <Navbar position="static">
+    <Navbar position="static" className="nav" maxWidth={'full'}>
       <NavbarBrand>
-        <p className="font-bold text-inherit">ACME</p>
+        <img src="/menu.png" className="menu-small"/>
+        <h1>MyHogwarts</h1>
       </NavbarBrand>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        {!isLoggedIn ? (
+      <NavbarContent>
         <NavbarItem>
-            <Popover placement="bottom" showArrow offset={10}>
-                <PopoverTrigger>
-                    <Button color="primary">LogIn</Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-[240px]">
-                    <LogInPopover/>
-                </PopoverContent>
-            </Popover>
-            <Popover placement="bottom" showArrow offset={10}>
-                <PopoverTrigger>
-                    <Button color="primary">SignUp</Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-[240px]">
-                    <SignUpPopover/>
-                </PopoverContent>
-            </Popover>
-        </NavbarItem>
-        ):(
-        <NavbarItem style={{display: "flex"}}>
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
-              <Avatar src="/menu.png" />
+              <Avatar src={`/${loggedUser?.team?.name}-badge.png`} />
             </DropdownTrigger>
-            <DropdownMenu aria-label="Profile Actions" variant="flat">
+            <DropdownMenu aria-label="Team Actions" variant="flat">
               <DropdownItem key="team" className="h-14 gap-2" href='/users/:userId'>
                 {loggedUser?.team?.name}
               </DropdownItem>
-              <DropdownItem key="settings" className="h-14 gap-2" onAction={logOut}>
-                Logout
+              <DropdownItem key="teams" className="h-14 gap-2" href="/teams/">
+                Teams
+              </DropdownItem>
+              <DropdownItem key="members" className="h-14 gap-2" href="/users/">
+                Members
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
+          </NavbarItem>
+        <NavbarItem>
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
               <Avatar src={loggedUser?.image} />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">
-              <DropdownItem key="profile" className="h-14 gap-2" href='/users/:userId'>
+              <DropdownItem key="profile" className="h-14 gap-2" href={`/users/${loggedUser?._id}`}>
                 Profile
               </DropdownItem>
               <DropdownItem key="logout" className="h-14 gap-2" onAction={logOut}>
@@ -94,7 +78,6 @@ export default function NavBar() {
             </DropdownMenu>
           </Dropdown>
         </NavbarItem>
-        )}
       </NavbarContent>
     </Navbar>
   );

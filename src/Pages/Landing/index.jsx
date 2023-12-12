@@ -45,10 +45,10 @@ const handleFormSubmit = (e) =>{
     return(
         <div className="landing">
             <div className="landing-image-div">
-
             </div>
             <div className="landing-form mt-2 flex flex-col gap-2">
-        <h1>Welcome to MyHogwarts!</h1>        
+        <h1>Welcome to MyHogwarts!</h1>
+        <img src="/menu.png"/>    
         <form onSubmit={handleFormSubmit}>
             <Input value={form.email} label="Email" size="sm" variant="bordered" onChange={(e)=>handleTyping(e.target.value, 'email')}/>
             <Input type="password" value={form.password} label="Password" size="sm" variant="bordered" onChange={(e)=>handleTyping(e.target.value, 'password')}/>
@@ -56,7 +56,7 @@ const handleFormSubmit = (e) =>{
             {error && <p>{error}</p>}
       </form>
       <hr className="landing-hr"></hr>
-            <h1>Dont have an Account?</h1>
+            <h1>Don't have an Account?</h1>
       <Popover placement="bottom" showArrow offset={10} backdrop="blur">
                 <PopoverTrigger>
                     <Button color="primary" size="lg">SignUp</Button>

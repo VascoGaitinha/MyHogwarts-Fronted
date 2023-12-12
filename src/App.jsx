@@ -5,6 +5,9 @@ import NavBar from './components/NavBar';
 import { useContext } from 'react';
 import { AuthContext } from './Context/auth.context';
 import AddTeam from './Pages/AddTeam';
+import AllTeamsPage from './Pages/AllTeams';
+import UserProfilePage from './Pages/UserProfile';
+import UsersPage from './Pages/Users';
 
 
 function App() {
@@ -16,6 +19,9 @@ function App() {
     {isLoggedIn ? <NavBar /> : ""}
     <Routes>
       <Route path="/" element={<LandingPage/>}/>
+      <Route path="/teams" element={<AllTeamsPage/>}/>
+      <Route path="/users" element={<UsersPage/>} />
+      <Route path="/users/:userId" element={<UserProfilePage/>}/>
       <Route path="/addteam" element={<AddTeam/>}/>
       <Route path="*" element={<HomePage/>}/>
     </Routes>
