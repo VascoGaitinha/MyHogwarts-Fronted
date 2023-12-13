@@ -6,9 +6,6 @@ import { AuthContext } from "../../Context/auth.context";
 import { Popover, PopoverContent, PopoverTrigger } from "@nextui-org/react";
 import SignUpPopover from "../../components/SignUpPopover";
 
-
-
-
 const LandingPage = () => {
 
 const navigate=useNavigate();

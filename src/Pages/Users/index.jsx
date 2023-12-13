@@ -17,24 +17,42 @@ const UsersPage = () => {
         .finally(setLoading(false))    
     },[])
 
-    return(
-        <div>
-            <div>
-            </div>
-            {loading ? <p>Loading...</p> :
-            
-            users.map((user)=>{
-            return(
-                <div key={user._id} style={{display: "flex", justifyContent: "center"}} className="">
-                    <Avatar src={user.image} size="sm"/>
-                    <p>{user.name}</p>
-                    <Avatar src={`/${user.team.name}-badge.png`} size="sm"/>
-                </div>)
-            })}
-            <div>
-            </div>
+    return (
+        <div className="profile-main-div">
+        <div className="profile-banner-div" style={{backgroundImage: `url(/Hogwarts-banner.png)`}}>
         </div>
-    )
+        <div className="users-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Member</th>
+              <th>Name</th>
+              <th>Team</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user, index) => (
+              <tr key={index}>
+                <td>
+                  <Avatar src={user.image} size="sm" />
+                </td>
+                <td>
+                  <h2>{user.name}</h2>
+                </td>
+                <td>
+                  <Avatar src={`/${user.team?.name}-badge.png`} size="sm" />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        </div>
+        <div className="profile-banner-div" style={{backgroundImage: `url(/Hogwarts-banner.png)`}}>
+        </div>
+        </div>
+      );
+
+   
 }
 
 export default UsersPage;

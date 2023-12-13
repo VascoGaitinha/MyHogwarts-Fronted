@@ -1,0 +1,24 @@
+[
+    {
+      "question": "what is my name?",
+      "answers": [
+        {"option": "Bob", "correct": true},
+        {"option": "John", "correct": false}
+      ]
+    },
+    {
+      "question": "what is my age?",
+      "answers": [
+        {"option":"24", "correct": true},
+        {"option": "32", "correct": false}
+      ]
+    },
+    {
+        "question": "what is my degree?",
+        "answers": [
+          {"option":"medicine", "correct": true},
+          {"option": "engineering", "correct": false}
+        ]
+      }
+  ]
+  

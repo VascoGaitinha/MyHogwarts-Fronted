@@ -1,20 +1,24 @@
 import { useContext, useEffect, useState } from "react"
 import axios from "axios"
 import { AuthContext } from "../../Context/auth.context"
+import { Button } from "@nextui-org/react"
+import { useNavigate } from "react-router-dom"
 
-const AllTeamsPage = () => {
+const QuizzesPage = () => {
     const {BACKEND} = useContext(AuthContext);
-    const [teams, setTeams] = useState([]);
+    const [quizzes, setQuizzes] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(()=> {
-        axios.get(`${BACKEND}/api/teams`)
+        axios.get(`${BACKEND}/api/quizz`)
         .then((response)=>{
-            setTeams(response.data)
+            console.log(response.data)
+            setQuizzes(response.data)
         })
         .catch((error)=> console.log(error))
         .finally(
-            console.log(teams),
+            console.log(quizzes),
             setLoading(false))
     },[loading])
 
@@ -24,11 +28,12 @@ return( <div className="profile-main-div">
         </div>
         <div className="centered">
     {loading?<p>loading</p>:
-    teams.map((team)=>{
+    quizzes.map((quizz)=>{
         return(
-            <div className="team-card" key={team._id}>
-                <h1>{team.name}</h1>
-                <img src={`/${team.name}-logo.png`} />
+            <div className="quizz-card" key={quizz._id}>
+                <h1>{quizz.name}</h1>
+                <hr style={{width: "75%"}}></hr>
+                <Button onClick={()=>navigate(`/quizz/${quizz._id}`)}>Go</Button>
             </div>
         )
     })
@@ -41,4 +46,4 @@ return( <div className="profile-main-div">
 }
 
 
-export default AllTeamsPage;
+export default QuizzesPage;
