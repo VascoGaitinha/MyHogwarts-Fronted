@@ -1,10 +1,8 @@
-import { Input, Button } from "@nextui-org/react";
 import { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/auth.context";
-import { Popover, PopoverContent, PopoverTrigger } from "@nextui-org/react";
-import SignUpPopover from "../../components/SignUpPopover";
+import "./index.css";
 
 const LandingPage = () => {
 
@@ -40,28 +38,24 @@ const handleFormSubmit = (e) =>{
 
 };
     return(
-        <div className="landing">
-            <div className="landing-image-div">
+        <div className="main">
+            <div className="left-div">
             </div>
-            <div className="landing-form mt-2 flex flex-col gap-2">
+            <div className="right-div">
+                <div className="form-div">
         <h1>Welcome to MyHogwarts!</h1>
         <img src="/menu.png"/>    
         <form onSubmit={handleFormSubmit}>
-            <Input value={form.email} label="Email" size="sm" variant="bordered" onChange={(e)=>handleTyping(e.target.value, 'email')}/>
-            <Input type="password" value={form.password} label="Password" size="sm" variant="bordered" onChange={(e)=>handleTyping(e.target.value, 'password')}/>
-            <Button type="submit" size="md" className="max-w-md">Log In</Button>
+            <input value={form.email} label="Email" size="sm" variant="bordered" onChange={(e)=>handleTyping(e.target.value, 'email')}/>
+            <input type="password" value={form.password} label="Password" size="sm" variant="bordered" onChange={(e)=>handleTyping(e.target.value, 'password')}/>
+            <button type="submit" size="md" className="max-w-md">Log In</button>
             {error && <p>{error}</p>}
       </form>
-      <hr className="landing-hr"></hr>
             <h1>Don't have an Account?</h1>
-      <Popover placement="bottom" showArrow offset={10} backdrop="blur">
-                <PopoverTrigger>
-                    <Button color="primary" size="lg">SignUp</Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-[240px]">
-                    <SignUpPopover/>
-                </PopoverContent>
-            </Popover>
+            <div>
+            <button>Sign Up</button>
+            </div>
+            </div>
     </div>
         </div>
     )

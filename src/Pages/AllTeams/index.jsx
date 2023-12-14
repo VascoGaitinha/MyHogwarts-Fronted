@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import axios from "axios"
 import { AuthContext } from "../../Context/auth.context"
+import "./index.css"
 
 const AllTeamsPage = () => {
     const {BACKEND} = useContext(AuthContext);
@@ -19,23 +20,24 @@ const AllTeamsPage = () => {
     },[loading])
 
 
-return( <div className="profile-main-div">
-        <div className="profile-banner-div" style={{backgroundImage: `url(/Hogwarts-banner.png)`}}>
+return( <div className="to-blur main">
+        <div className="banner">
         </div>
-        <div className="centered">
+        <div className="team-list">
     {loading?<p>loading</p>:
     teams.map((team)=>{
         return(
             <div className="team-card" key={team._id}>
                 <h1>{team.name}</h1>
                 <img src={`/${team.name}-logo.png`} />
+                <p>Total Points: {team.totalPoints}</p>
             </div>
         )
     })
     
     
     }</div>
-        <div className="profile-banner-div" style={{backgroundImage: `url(/Hogwarts-banner.png)`}}>
+        <div className="banner">
         </div>
     </div>)
 }

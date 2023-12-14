@@ -31,7 +31,7 @@ function HomePage() {
 
   return (
 
-    <div>
+    <div className="to-blur">
       {loading || !loggedUser ? <p>Loading...</p> :
       loggedUser?.firstLoggin ? <ProfilePopOver loggedUser={loggedUser} />
       :

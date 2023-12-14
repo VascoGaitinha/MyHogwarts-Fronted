@@ -4,7 +4,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../Context/auth.context";
 import axios from "axios";
 import ProfilePopOver from "../../components/ProfilePopover";
-import { Avatar } from "@nextui-org/react";
 
 function UserProfilePage() {
   const { isLoggedIn, user, logOut, BACKEND } = useContext(AuthContext);

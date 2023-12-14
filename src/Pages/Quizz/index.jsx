@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QuestionPopover from "../../components/QuestionPopover";
-import { Popover, PopoverContent, PopoverTrigger, Button } from "@nextui-org/react";
 import axios from "axios";
 import { AuthContext } from "../../Context/auth.context";
+import "./index.css"
 
 const QuizzPage = () => {
     const {BACKEND} = useContext(AuthContext);
@@ -35,43 +35,20 @@ const QuizzPage = () => {
   };
 
   return (
-    <div className="centered">
+    <div className="main to-blur">
+        <div className="banner">
+        </div>
         {!loading ?(
-            <div>
+            <div className="quizz">
       <h1>{quizz?.name}</h1>
       <hr></hr>
       <p>{quizz?.description}</p>
-      <Popover
-        placement="bottom"
-        showArrow ={false}
-        offset={0}
-        backdrop="opaque"
-        isOpen={currentQuestionIndex !== null}
-        onToggle={() => setCurrentQuestionIndex(null)}
-        className="center-popover"
-      >
-        <PopoverTrigger>
-          <Button color="primary" size="lg" onClick={() => togglePopover(0)}>
-            Start
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent >
-          {quizz?.questions.map((q, index) => (  
-            <QuestionPopover
-              key={index}
-              question={q}
-              index={index}
-              isOpen={currentQuestionIndex === index}
-              setCorrectAnswers={setCorrectAnswers}
-              correctAnswers={correctAnswers}
-              onToggle={() => togglePopover(index + 1)} // Show the next question
-            />
-          ))}
-        </PopoverContent>
-      </Popover>
+      <button>Start Quizz</button>
       </div>)
       :<p>Loading</p>
       }
+      <div className="banner">
+      </div>
     </div>
   );
 };

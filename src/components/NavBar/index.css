@@ -1,0 +1,83 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 1rem 5rem;
+    box-shadow: rgba(176, 127, 46, 1) 0px 2px 4px;
+    height:7rem;
+}
+
+#nav-button{
+    cursor: pointer;
+    box-shadow: none;
+    transition: scale 0.5s ease, box-shadow 0.5s ease;
+}
+
+#nav-button:hover{
+    scale: 1.03;
+    box-shadow: rgba(176, 127, 46, 1) 0px 0rem 0.5rem;
+}
+
+#nav-button:active{
+    scale: 1.02;
+}
+
+
+
+.nav-brand{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.nav-brand img{
+    height: 7rem;
+    width: auto;
+}
+
+.nav-icons img{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: #B07F2E;
+    margin: 0 1rem;
+    border: 1px dotted #B07F2E; 
+}
+
+.nav-droplist {
+    position: absolute;
+    left:75%;
+    top:8rem;
+    width:25%;
+    border: 1px solid #B07F2E;
+    background-color: rgba(245, 245, 245, 0.11);    
+    box-shadow: rgba(176, 127, 46, 1) 0px 0.1rem 0.5rem;
+    
+    transition: height 0.5s ease, opacity 0.75s ease-out;
+    text-align: left;
+    padding: 1%;
+    border-radius: 5%;
+    z-index: 1;
+}
+
+.menu-item{
+    font-size: 2rem;
+    transition: opacity 0.5s ease;
+}
+
+.menu-item:hover{
+    opacity: 0.75;
+}
+
+.menu-item:active{
+    opacity: 0.5;
+}
+
+li{
+    padding-left: 10%;
+}
+
+nav h1{
+    font-size: 4em;
+    text-shadow: #B07F2E 1px 1px;
+}

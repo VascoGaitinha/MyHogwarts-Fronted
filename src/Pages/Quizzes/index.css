@@ -1,0 +1,53 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.banner{
+    background-image: url("/Hogwarts-banner.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15%;
+}
+
+.quizz-list{
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: left;
+}
+.quizz-card{
+    width: 100%;
+}
+
+.quizz-details{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+
+}
+
+.quizz-details p{
+    margin-left: 3rem;
+}
+
+
+
+.quizz-image{
+    width: 5rem;
+    border: 1px double #B07F2E ;
+    border-radius: 5%;
+}
+
+
+hr {
+    border-color: #B07F2E;
+    opacity: 0.25;
+}
+
+.span{
+    color:#B07F2E;
+    opacity: 0.66;
+}

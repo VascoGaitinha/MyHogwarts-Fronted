@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import {Select, SelectSection, SelectItem} from "@nextui-org/react";
 import teams from "../assets/teams.json"
 import { AuthContext } from "../Context/auth.context";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { PopoverContent, Popover, Input, Button } from "@nextui-org/react";
 
 const ProfilePopOver = (props) => {
 
@@ -98,7 +96,7 @@ const ProfilePopOver = (props) => {
                         )
                     })}
                 </Select>
-                <label className="w-full">Profile Picture</label>
+                <label className="w-full">Profile Picture (max 16mb)</label>
                 <input className="file-button" type="file" onChange={(e) => handleFile(e, "image")}/>
                 <Button type="submit" size="sm">Join Us!</Button>
                 <Button size="sm" onClick={()=> navigate('/homepage')}>Skip</Button>

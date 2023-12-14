@@ -1,0 +1,23 @@
+.main {
+    display: flex;
+}
+
+.banner{
+    background-image: url("/Hogwarts-banner.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15%;
+}
+
+.team-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.team-card {
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    align-items: center;
+  }

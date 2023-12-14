@@ -1,146 +1,80 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 *{
-    margin:0;
-    padding: 0;
-    box-sizing: content-box;
+    transition: filter 0.75s ease;
+}
+
+@font-face {
+    font-family: "hp" ;
+    src: url(./assets/hp.TTF);
 }
 
 body, html{
-    /* font-family: 'hp', sans-serif; /* Apply the 'hp' font to the entire body or specific elements */
-    font-size: 32px;
+    margin:0;
+    padding: 0;
     letter-spacing: 0.1rem;
     height: 100%;
-    background-color: #0D001A;
+    color: whitesmoke;
+    background-color: black;
+    font-family: "hp";
 }
 
-h1 {
-    font-size: 40px; /* Adjust the font size for h1 */
-  }
-  
-h2 {
-    font-size: 30px; /* Adjust the font size for h2 */
-  }
-
-@font-face {
-    font-family: 'hp';
-    font-weight: 900;
-    src: local('hp'), url(./assets/hp.TTF) format('truetype');
-  }
-
-.landing{
-    display: flex;
+a{
+    text-decoration: none;
+    color: whitesmoke
 }
 
-.h2{font-size: 1rem;}
-
-.landing-image-div{
-    background: none;
-    height:100vh;
-    width: 60%;
-    background-image: url('../public/f449d5c2b4f0b917b946d698272cd7ea.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
+ul{
+    list-style: none;
 }
 
-.landing-form{
-    box-sizing: border-box;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-.landing-hr{
-    width: 50%;
+.blur {
+    opacity: 0.25;
+    filter: blur(5px);
 }
 
-.landing-form > * {
-    margin:10px;
-}
-
-.file-button{
-    width: 100%;
-    padding: 2px;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #B07F2E;
+    border-radius: 5px;
+    background-color: #b07e2e13;
+    color: whitesmoke;
+    transition: background-color 0.5s, color 0.5s, border 0.5s, scale 0.5s;
     cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+    font-family: "hp";
+    margin: 0.5rem 0;
+  }
+
+  button:hover {
+    color: black;
+    background-color: #B07F2E;
+    border-color: whitesmoke;
+  }
+
+  button:active {
+    scale: 0.95;
+  }
 
 
+  input {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #B07F2E;
+    border-radius: 5px;
+    background-color: black;
+    color: whitesmoke;
+    transition: background-color 0.5s, color 0.5s, border 0.5s, scale 0.5s;
+    cursor: pointer;
+    font-family: "hp";
+    margin: 0.5rem 0;
+  }
 
-.nav{
-    box-shadow: rgba(245, 245, 245, 0.18) 0px 2px 4px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
+  input:hover {
+    color: black;
+    background-color: #b07e2e13;
+    border-color: whitesmoke;
+  }
 
-
-.menu-small{
-    width: 100px;
-}
-
-.centered{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5rem 1rem;
-    width: fit-content;
-    margin : 5% auto;
-    width: 50%;
-    height: 100vh;
-}
-
-.team-card{
-    box-sizing: content-box  ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(245, 245, 245, 0.18);
-    max-height: 50%;
-    padding: 0 1%;
-}
-
-.team-card img{
-    width:250px;
-    height: auto;
-}
-
-.profile-main-div{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin: 0 auto;
-}
-.profile-banner-div{
-    height: 100vh;
-    width: 10%;
-    margin: 0 10%;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-
-.none {
-    all:none;
-}
-
-.users-table{
-    align-items: center;
-    gap: 5rem 1rem;
-    margin : 1% auto;
-    width: max-content;
-    height: max-content;
-    gap: 500px;
-}
-.users-table tr, th, td{
-    border: 25px solid rgba(0, 128, 0, 0);
-}   
-.center-popover {
-    margin: 0 auto;
-}
+  input:active {
+    scale: 0.95;
+  }

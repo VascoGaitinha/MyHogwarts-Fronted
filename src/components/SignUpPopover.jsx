@@ -1,4 +1,3 @@
-import { Input, Button } from "@nextui-org/react";
 import { useContext, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../Context/auth.context";

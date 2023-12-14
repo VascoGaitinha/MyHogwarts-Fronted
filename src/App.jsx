@@ -1,7 +1,6 @@
 import {Routes, Route} from 'react-router-dom';
 import HomePage from './Pages/Home';
 import LandingPage from './Pages/Landing';
-import NavBar from './components/NavBar';
 import { useContext } from 'react';
 import { AuthContext } from './Context/auth.context';
 import AllTeamsPage from './Pages/AllTeams';
@@ -9,6 +8,7 @@ import UserProfilePage from './Pages/UserProfile';
 import UsersPage from './Pages/Users';
 import QuizzPage from './Pages/Quizz';
 import QuizzesPage from './Pages/Quizzes';
+import NavBar from './components/NavBar';
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div>
-    {isLoggedIn ? <NavBar /> : ""}
+    {isLoggedIn ? <NavBar/> : ""}
     <Routes>
       <Route path="/" element={<LandingPage/>}/>
       <Route path="/users" element={<UsersPage/>} />

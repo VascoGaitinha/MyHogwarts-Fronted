@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/auth.context";
 import axios from "axios";
-import { Avatar } from "@nextui-org/react";
+import "./index.css";
 
 const UsersPage = () => {
     const {BACKEND} = useContext(AuthContext);
@@ -18,36 +18,36 @@ const UsersPage = () => {
     },[])
 
     return (
-        <div className="profile-main-div">
-        <div className="profile-banner-div" style={{backgroundImage: `url(/Hogwarts-banner.png)`}}>
+        <div className="main to-blur">
+        <div className="banner">
         </div>
-        <div className="users-table">
+        <div className="user-list">
         <table>
           <thead>
             <tr>
-              <th>Member</th>
-              <th>Name</th>
-              <th>Team</th>
+              <th><h1>Member</h1></th>
+              <th><h1>Name</h1></th>
+              <th><h1>Team</h1></th>
             </tr>
           </thead>
           <tbody>
             {users.map((user, index) => (
               <tr key={index}>
                 <td>
-                  <Avatar src={user.image} size="sm" />
+                  <img src={user.image} className="badge" />
                 </td>
                 <td>
                   <h2>{user.name}</h2>
                 </td>
                 <td>
-                  <Avatar src={`/${user.team?.name}-badge.png`} size="sm" />
+                  <img src={`/${user.team?.name}-badge.png`} className="badge" />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
         </div>
-        <div className="profile-banner-div" style={{backgroundImage: `url(/Hogwarts-banner.png)`}}>
+        <div className="banner">
         </div>
         </div>
       );
