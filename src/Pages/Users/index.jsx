@@ -2,11 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/auth.context";
 import axios from "axios";
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 const UsersPage = () => {
     const {BACKEND} = useContext(AuthContext);
     const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         axios.get(`${BACKEND}/api/users`)
@@ -34,13 +36,13 @@ const UsersPage = () => {
             {users.map((user, index) => (
               <tr key={index}>
                 <td>
-                  <img src={user.image} className="badge" />
+                  <img src={user.image} className="badge" onClick={() => {navigate(`/users/${user._id}`)  }} />
                 </td>
                 <td>
                   <h2>{user.name}</h2>
                 </td>
                 <td>
-                  <img src={`/${user.team?.name}-badge.png`} className="badge" />
+                  <img src={`/${user.team?.name}-badge.png`} className="badge2" />
                 </td>
               </tr>
             ))}

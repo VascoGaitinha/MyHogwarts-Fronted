@@ -19,31 +19,7 @@ const ProfilePopOver = (props) => {
         firstLoggin: false
     });
 
-    const  imgToB64 = (file) =>{
-        return new Promise((resolve,reject)=>{
-            const fileReader = new FileReader();
-            fileReader.readAsDataURL(file);
-            fileReader.onload = () => {
-                resolve(fileReader.result)
-            }
-            fileReader.onerror = (error) =>{
-                reject(error)
-            }
-        })
-        }       
     
-        const handleFile = async (e, field) => {
-            try {
-                if (e.target.files && e.target.files.length > 0) {
-                    const convImg = await imgToB64(e.target.files[0]);
-                    setForm((prev) => ({
-                        ...prev, [field]: convImg
-                    }))
-                }
-            } catch (error) {
-                console.error(error);
-            }
-        };
 
     const handleTyping = (e, field) => {
         setForm((prev)=>({
@@ -88,14 +64,7 @@ const ProfilePopOver = (props) => {
           :
           <p>Edit Profile</p>}
             <form onSubmit={(e)=> handleFormSubmit(e)}>
-                <Input value={form.name} label="Name" size="sm" variant="flat" onChange={(e)=>handleTyping(e.target.value, 'name')}/>
-                <Select size="sm" label="Team" onChange={(e)=> handleSelect(e.target.value, "team")}>
-                    {teams.map((team)=>{
-                        return(
-                            <SelectItem value={team.id} key={team.id}>{team.name}</SelectItem>
-                        )
-                    })}
-                </Select>
+
                 <label className="w-full">Profile Picture (max 16mb)</label>
                 <input className="file-button" type="file" onChange={(e) => handleFile(e, "image")}/>
                 <Button type="submit" size="sm">Join Us!</Button>

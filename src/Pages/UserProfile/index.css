@@ -1,0 +1,22 @@
+.profile-main-div {
+    display: flex;
+    height: 100vh;
+  }
+
+.profile-banner-div{
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15%;
+  }
+
+.user-info-div{
+  width: 60%;
+  margin: 0 auto;
+  }
+
+.profile-image{
+  width: 7rem;
+  height: auto;
+  border-radius: 15%;
+  border: 2px solid #B07F2E; 
+  }

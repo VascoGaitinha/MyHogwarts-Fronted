@@ -1,5 +1,6 @@
 .main {
     display: flex;
+    height: 100vh;
 }
 
 .banner{
@@ -23,12 +24,35 @@
     align-items: center;
   }
 
-  .badge{
+.badge{
     width: 4rem;
     height: 4rem;
     border-radius: 100%;
+    border: 1px solid #B07F2E;
   }
 
-  th {
+  .badge2{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    border: 1px solid #B07F2E;
+  }
+
+
+.badge:hover{
+    cursor:pointer;
+    background-color: rgba(245, 245, 245, 0.11);    
+    box-shadow: rgba(176, 127, 46, 1) 0px 0.1rem 0.5rem;
+    scale: 1.1
+  }
+
+.badge:active{
+    cursor:pointer;
+    background-color: rgba(245, 245, 245, 0.11);    
+    box-shadow: rgba(176, 127, 46, 1) 0px 0.1rem 0.5rem;
+    scale: 1.05
+  }
+
+th {
     text-align: center;
       }

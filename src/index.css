@@ -1,6 +1,6 @@
 
 *{
-    transition: filter 0.75s ease;
+    transition: all 0.5s;
 }
 
 @font-face {
@@ -8,9 +8,15 @@
     src: url(./assets/hp.TTF);
 }
 
+#root{
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0 auto;
+  max-width: 1920px;
+}
+
 body, html{
     margin:0;
-    padding: 0;
     letter-spacing: 0.1rem;
     height: 100%;
     color: whitesmoke;
@@ -27,9 +33,13 @@ ul{
     list-style: none;
 }
 
-.blur {
-    opacity: 0.25;
-    filter: blur(5px);
+h1{
+  text-shadow: #B07F2E 1px 1px, #B07F2E -1px -1px;
+}
+
+.blur{
+  opacity: 0.25;
+  filter: blur(5px);
 }
 
 button {
@@ -39,7 +49,6 @@ button {
     border-radius: 5px;
     background-color: #b07e2e13;
     color: whitesmoke;
-    transition: background-color 0.5s, color 0.5s, border 0.5s, scale 0.5s;
     cursor: pointer;
     font-family: "hp";
     margin: 0.5rem 0;
@@ -55,7 +64,6 @@ button {
     scale: 0.95;
   }
 
-
   input {
     padding: 10px 20px;
     font-size: 16px;
@@ -63,18 +71,64 @@ button {
     border-radius: 5px;
     background-color: black;
     color: whitesmoke;
-    transition: background-color 0.5s, color 0.5s, border 0.5s, scale 0.5s;
     cursor: pointer;
     font-family: "hp";
     margin: 0.5rem 0;
+    outline: none;  
   }
 
   input:hover {
-    color: black;
     background-color: #b07e2e13;
     border-color: whitesmoke;
   }
 
   input:active {
+    background-color: #b07e2e13;
+    scale: 0.95;
+  }
+
+  select {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #B07F2E;
+    border-radius: 5px;
+    background-color: black;
+    color: whitesmoke;
+    cursor: pointer;
+    font-family: "hp";
+    margin: 0.5rem 0;
+    outline: none;  
+  }
+
+  select:hover {
+    background-color: #b07e2e13;
+    border-color: whitesmoke;
+  }
+
+  select:active {
+    background-color: #b07e2e13;
+    scale: 0.95;
+  }
+
+  option {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #B07F2E;
+    border-radius: 5px;
+    background-color: black;
+    color: whitesmoke;
+    cursor: pointer;
+    font-family: "hp";
+    margin: 0.5rem 0;
+    outline: none;  
+  }
+
+  option:hover {
+    background-color: #b07e2e13;
+    border-color: whitesmoke;
+  }
+
+  option:active {
+    background-color: #b07e2e13;
     scale: 0.95;
   }

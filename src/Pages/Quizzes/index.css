@@ -1,6 +1,7 @@
 .main {
     display: flex;
     justify-content: space-between;
+    height: 100vh;
 }
 
 .banner{
@@ -17,6 +18,13 @@
     align-items: center;
     justify-content: space-evenly;
     text-align: left;
+    overflow-y: scroll;
+    height:80vh;
+}
+
+.quizz-list::-webkit-scrollbar {
+    width: 0; /* For Chrome, Safari, and Opera */
+    height: 0; /* For Chrome, Safari, and Opera */
 }
 .quizz-card{
     width: 100%;

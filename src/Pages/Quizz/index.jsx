@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import QuestionPopover from "../../components/QuestionPopover";
 import axios from "axios";
 import { AuthContext } from "../../Context/auth.context";
 import "./index.css"
@@ -25,14 +24,6 @@ const QuizzPage = () => {
             setLoading(false))
     },[])
 
-  const togglePopover = (index) => {
-    if (index >= quizz.questions.length) {
-      setCurrentQuestionIndex(null);
-    } else {
-      setCurrentQuestionIndex(index);
-      setSolved(true);
-    }
-  };
 
   return (
     <div className="main to-blur">

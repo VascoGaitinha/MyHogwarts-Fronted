@@ -1,45 +1,35 @@
-import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Context/auth.context";
-import axios from "axios";
-import ProfilePopOver from "../../components/ProfilePopover";
+import { useContext, useEffect, useState } from "react"
+import axios from "axios"
+import { AuthContext } from "../../Context/auth.context"
+import "./index.css"
 
-function HomePage() {
-  const { isLoggedIn, user, logOut, BACKEND } = useContext(AuthContext);
-  const[loading,setLoading] = useState(true);
-  const[loggedUser, setLoggedUser] = useState(null);
-  const[imgUrl, setImgUrl] = useState("");
-  
-  
-  useEffect(() => {
-    if (user && user._id) {
-      axios.get(`${BACKEND}/api/users/${user._id}`)
-        .then((response) => {
-          setLoggedUser(response.data)
-          setImgUrl(response.data.image)
-          setLoading(false);
-          console.log(response.data)
+const AllTeamsPage = () => {
+    const {BACKEND} = useContext(AuthContext);
+    const [teams, setTeams] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(()=> {
+        axios.get(`${BACKEND}/api/teams`)
+        .then((response)=>{
+            setTeams(response.data)
         })
-        .catch((error) => {
-          console.error("Error fetching user data:", error);
-          setLoading(false);
-        });
-    } else {
-      setLoading(true);
-    }
-  }, [user]); 
+        .catch((error)=> console.log(error))
+        .finally(
+            console.log(teams),
+            setLoading(false))
+    },[loading])
 
-  return (
 
-    <div className="to-blur">
-      {loading || !loggedUser ? <p>Loading...</p> :
-      loggedUser?.firstLoggin ? <ProfilePopOver loggedUser={loggedUser} />
-      :
-      <h1 className="text-3xl font-bold underline">
-      Homepage
-    </h1>}
-    </div>
-  );
+return( <div className="to-blur main">
+        <div className="banner">
+        </div>
+        <div className="all-list">
+          <h1>Hi</h1>
+        </div>
+        <div className="banner">
+        </div>
+    </div>)
 }
 
-export default HomePage;
+
+export default AllTeamsPage;

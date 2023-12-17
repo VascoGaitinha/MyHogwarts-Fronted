@@ -3,33 +3,49 @@ import axios from "axios"
 import { AuthContext } from "../../Context/auth.context"
 import { useNavigate } from "react-router-dom"
 import "./index.css"
+import QuizzPopover from "../../components/QuizzPopover"
 
 const QuizzesPage = () => {
     const {BACKEND, user} = useContext(AuthContext);
     const [quizzes, setQuizzes] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+    const [selectedQuizz, setSelectedQuizz] = useState(null);
+    const [ userInDb, setUserInDB ] = useState ({});
     const navigate = useNavigate();
     const userIdToCheck = user?._id;
 
     useEffect(()=> {
         axios.get(`${BACKEND}/api/quizz`)
         .then((response)=>{
-            console.log(response.data)
             setQuizzes(response.data)
         })
         .catch((error)=> console.log(error))
-        .finally(
-            console.log(quizzes),
-            setLoading(false),
-            console.log(user?._id)
-    )
-    },[loading])
+        .finally(setLoading(false))
+
+        user && axios.get(`${BACKEND}/api/users/${user._id}`)
+        .then((response) => {
+            setUserInDB(response.data);
+            console.log(response.data)
+        })
+        .catch((error) => console.log(error))
+    },[user])
+
+    const handleBlur = () =>{
+        const body = document.querySelector(".to-blur");
+        body.classList.toggle("blur");
+      }
+    const handleOpenPopover = (quizz) => {
+        setSelectedQuizz(quizz); // Set the selectedQuizz state
+        setIsPopoverOpen(true);
+        handleBlur(); // Open the popover
+    };
 
 
 
-
-
-return( <div className="main to-blur">
+return( 
+    <div>
+    <div className="main to-blur">
         <div className="banner">
         </div>
         <div className="quizz-list">
@@ -46,16 +62,21 @@ return( <div className="main to-blur">
                 {(quizz.solvedBy.some(user => user._id === userIdToCheck))? <p className="span">You already solved this quizz!</p>
                 :
                 <div>
-                <button onClick={()=>navigate(`/quizz/${quizz._id}`)}>Go</button>
+                <button onClick={() => handleOpenPopover(quizz)}>Go</button>
                 </div>}
             </div>
         )
     })
     
-    
     }</div>
-         <div className="banner">
+            <div className="banner">
         </div>
+    </div>
+    <div>
+        {isPopoverOpen && selectedQuizz &&
+            <QuizzPopover quizzId={selectedQuizz._id} user={userInDb} />
+        }
+    </div>
     </div>)
 }
 

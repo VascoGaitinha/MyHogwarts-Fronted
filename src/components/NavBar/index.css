@@ -11,7 +11,6 @@ nav {
 #nav-button{
     cursor: pointer;
     box-shadow: none;
-    transition: scale 0.5s ease, box-shadow 0.5s ease;
 }
 
 #nav-button:hover{
@@ -36,33 +35,31 @@ nav {
 }
 
 .nav-icons img{
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     background-color: #B07F2E;
     margin: 0 1rem;
-    border: 1px dotted #B07F2E; 
+    border: 2px solid #B07F2E; 
 }
 
 .nav-droplist {
     position: absolute;
     left:75%;
     top:8rem;
-    width:25%;
+    width:20%;
     border: 1px solid #B07F2E;
     background-color: rgba(245, 245, 245, 0.11);    
     box-shadow: rgba(176, 127, 46, 1) 0px 0.1rem 0.5rem;
-    
-    transition: height 0.5s ease, opacity 0.75s ease-out;
     text-align: left;
     padding: 1%;
     border-radius: 5%;
     z-index: 1;
+    flex-direction: column;
 }
 
 .menu-item{
     font-size: 2rem;
-    transition: opacity 0.5s ease;
 }
 
 .menu-item:hover{
@@ -79,5 +76,6 @@ li{
 
 nav h1{
     font-size: 4em;
-    text-shadow: #B07F2E 1px 1px;
+    text-shadow: #B07F2E 1px 1px, #B07F2E -1px -1px;
+
 }

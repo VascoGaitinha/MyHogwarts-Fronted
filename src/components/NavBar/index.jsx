@@ -37,7 +37,7 @@ const NavBar = () => {
     body.classList.toggle("blur");
 
     !list.open ? 
-    setList({opacity: "1", height: "50vh", open: true , index: 1, display: "block"})
+    setList({opacity: "1", height: "33.75rem", open: true , index: 1, display: "flex"})
     :
     setList({opacity: "0", height: "2rem", open: false, index: 0, display: "hidden"})
   }
@@ -54,17 +54,17 @@ const NavBar = () => {
   return (
     <nav id="nav">
       <div className="nav-brand">
-        <img src="/menu.png" className="menu-small"/>
+        <img src="/menu.png"/>
         <h1>MyHogwarts</h1>
       </div>
       <div className="nav-icons">
         <img id="nav-button" src={`${loggedUser?.image}`} onClick={()=>toggleList()}/>
         <ul className="nav-droplist" id="menu" style={{opacity: `${list.opacity}`, height: `${list.height}`, display:`${list.display}`, cursor: list.open? "pointer" : "default" }}>
           <li>
-              <p className="menu-item" onClick={() => list.open && goTo("homepage")}>Profile</p>
+              <p className="menu-item" onClick={() => list.open && goTo(`users/${loggedUser._id}`)}>Profile</p>
             </li>
             <li>
-              <p className="menu-item" onClick={() => list.open &&  goTo("homepage")}>{loggedUser?.team.name}</p>
+              <p className="menu-item" onClick={() => list.open &&  goTo("homepage")}>{loggedUser?.team?.name}</p>
             </li>
             <li>
               <p className="menu-item" onClick={() => list.open &&  goTo("teams")}>All Teams</p>
