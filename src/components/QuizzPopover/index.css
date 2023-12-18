@@ -51,3 +51,7 @@ input[type="radio"] {
     justify-content: center;
     align-items: center;
   }
+
+  .label-2{
+    font-size: 1.5rem;
+  }

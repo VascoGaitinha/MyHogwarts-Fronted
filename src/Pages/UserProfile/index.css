@@ -7,6 +7,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     width: 15%;
+    margin-top: 0.2rem;
   }
 
 .user-info-div{
@@ -20,3 +21,16 @@
   border-radius: 15%;
   border: 2px solid #B07F2E; 
   }
+
+.team-badge{
+  width: 2rem;
+  height:2rem;
+
+}
+
+h1{
+  font-size: 3rem;
+}
+p{
+  font-size: 1.5rem;
+}

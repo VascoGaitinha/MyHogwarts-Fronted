@@ -8,6 +8,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     width: 15%;
+    margin-top: 0.2rem;
 }
 
 .user-list{
@@ -56,3 +57,6 @@
 th {
     text-align: center;
       }
+th, td, tr {
+  padding: 0 1rem;
+}

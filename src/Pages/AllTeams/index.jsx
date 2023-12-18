@@ -8,21 +8,38 @@ const AllTeamsPage = () => {
     const [teams, setTeams] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(()=> {
+    useEffect(() => {
         axios.get(`${BACKEND}/api/teams`)
-        .then((response)=>{
-            setTeams(response.data)
-        })
-        .catch((error)=> console.log(error))
-        .finally(
-            console.log(teams),
-            setLoading(false))
-    },[loading])
+          .then((response) => {
+            setTeams(response.data);
+            setLoading(false);
+            calculatePoints(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }, [loading]);    
 
+      
+      const calculatePoints = (teams) => {
+        teams.forEach((team) => {
+            console.log(team.name)
+          let teamTotalPoints = 0;
+          team.members.forEach((member) => {
+            console.log(member.name, "has", member.totalPoints, "points. Adding to team Score");
+            teamTotalPoints += member.totalPoints;
+            axios.put(`${BACKEND}/api/teams/${team._id}`, {totalPoints : teamTotalPoints} )
+            .then(setLoading(false))
+          });
+        });
+      };
+      
 
 return( <div className="to-blur main">
+
         <div className="banner">
         </div>
+        {loading ? <img src="/loading.gif"/> :
         <div className="team-list">
     {loading?<p>loading</p>:
     teams.map((team)=>{
@@ -34,9 +51,7 @@ return( <div className="to-blur main">
             </div>
         )
     })
-    
-    
-    }</div>
+    }</div>}
         <div className="banner">
         </div>
     </div>)

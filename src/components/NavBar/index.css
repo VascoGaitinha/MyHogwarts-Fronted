@@ -6,6 +6,7 @@ nav {
     padding: 1rem 5rem;
     box-shadow: rgba(176, 127, 46, 1) 0px 2px 4px;
     height:7rem;
+    width: 100%;
 }
 
 #nav-button{
@@ -38,7 +39,6 @@ nav {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
-    background-color: #B07F2E;
     margin: 0 1rem;
     border: 2px solid #B07F2E; 
 }

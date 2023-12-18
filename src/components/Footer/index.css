@@ -5,9 +5,11 @@
     width: 100%;
     box-sizing: border-box;
     padding: 0.5rem 3rem;
+    position: fixed;
+    bottom: 0;
 }
 
 .social {
-    width: 50px;
+    width: 30px;
     margin: 0 1rem;
 }

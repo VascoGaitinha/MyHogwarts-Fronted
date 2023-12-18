@@ -8,27 +8,48 @@ function UserProfilePage() {
   const { isLoggedIn, user, logOut, BACKEND } = useContext(AuthContext);
   const[loading,setLoading] = useState(true);
   const[profileOwner, setProfileOwner] = useState(null);
-  const[imgUrl, setImgUrl] = useState("");
-  const navigate = useNavigate();
   const idToGet = useParams().userId;
+
+  const handleFirstLoggin = (user) => {
+  profileOwner?.firstLoggin && 
+    axios.put(`${BACKEND}/api/teams/${user.team._id}/adduser`, { memberId: user._id })
+    .then(response => {
+      console.log(response.data);
+      axios.put(`${BACKEND}/api/users/${user._id}`, { firstLoggin: false })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+
+
+  }
   
   useEffect(() => {
     if (user && user._id) {
       axios.get(`${BACKEND}/api/users/${idToGet}`)
         .then((response) => {
           setProfileOwner(response.data)
-          setImgUrl(response.data.image)
           setLoading(false);
+          handleFirstLoggin(response.data);
           console.log(user)
         })
         .catch((error) => {
-          console.error("Error fetching user data:", error);
+          console.error("Error fetching user data");
           setLoading(false);
         });
     } else {
       setLoading(true);
     }
-  }, [user]); 
+  }, [user, loading]); 
+
+
+  
 
 return( <div className="to-blur profile-main-div ">
         <div className="profile-banner-div" style={{backgroundImage: `url(/${profileOwner?.team.name}-banner.png)`}}>
@@ -37,6 +58,11 @@ return( <div className="to-blur profile-main-div ">
           <h1>{profileOwner?.name}</h1>  
           <img className="profile-image" src={profileOwner?.image}></img>
           <p>Member since: {profileOwner?.firstJoined}</p>
+          <div style={{display: "flex", alignItems: "center"}}>
+          <p>Team: {profileOwner?.team.name}</p>
+          <img className="team-badge" src={`/${profileOwner?.team.name}-badge.png`}/>
+          </div>
+          <p>Total Points: {profileOwner?.totalPoints}</p>
         </div>
         <div className="profile-banner-div" style={{backgroundImage: `url(/${profileOwner?.team.name}-banner.png)`}}>
         </div>

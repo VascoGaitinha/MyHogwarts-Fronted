@@ -2,22 +2,17 @@ import { useContext, useEffect, useState } from "react"
 import axios from "axios"
 import { AuthContext } from "../../Context/auth.context"
 import "./index.css"
+import { useNavigate } from "react-router-dom"
 
 const AllTeamsPage = () => {
-    const {BACKEND} = useContext(AuthContext);
-    const [teams, setTeams] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    useEffect(()=> {
-        axios.get(`${BACKEND}/api/teams`)
-        .then((response)=>{
-            setTeams(response.data)
-        })
-        .catch((error)=> console.log(error))
-        .finally(
-            console.log(teams),
-            setLoading(false))
-    },[loading])
+    useEffect(() => {
+        console.log("USER LOADED AS:");
+        console.log(user);
+        user && navigate(`/users/${user._id}`);
+    },[user])
 
 
 return( <div className="to-blur main">

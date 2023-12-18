@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/auth.context";
 import "./index.css";
 import teams from "../../assets/teams.json"
+import defaultImage from "../../utils/defaultimage";
 import Footer from "../../components/Footer";
 
 const LandingPage = () => {
@@ -36,10 +37,10 @@ const [signUpForm, setSignUpForm] = useState({
 const handleSignUpFormSubmit = (e) =>{
     e.preventDefault();
 
-    const requestBody = signUpForm
-    console.log (requestBody)
-
-
+    const requestBody = {
+        ...signUpForm,
+        image: signUpForm.image || defaultImage,
+    };
 
     axios.post(`${BACKEND}/auth/signup`, requestBody)
         .then(()=>{
@@ -47,8 +48,9 @@ const handleSignUpFormSubmit = (e) =>{
         })
         .catch((error)=>{
             console.log(error);
-            setError(error.message);
+            setError(error.response.data.message);
         })
+    
 };
 
 const handleLoginFormSubmit = (e) =>{
@@ -67,10 +69,6 @@ const handleLoginFormSubmit = (e) =>{
             setError(error.response.data.message);
         })
 };
-
-
-
-
 
     const togglePopUp = () =>{
         const body = document.querySelector(".to-blur");
@@ -177,6 +175,7 @@ const handleLoginFormSubmit = (e) =>{
                     <div style={{display: "flex", flexDirection:"column"}}>
                     <label>Select Your Team</label>
                     <select onChange={(e) => {handleSelect(e.target.value, "team")}}>
+                        <option value="Select your team" hidden></option>
                         {teams.map((team) => (
                         <option value={team.id} key={team.id}>
                             {team.name}
@@ -185,7 +184,7 @@ const handleLoginFormSubmit = (e) =>{
                     </select>
                     </div>
                     <div style={{display: "flex", flexDirection:"column"}}>
-                    <label className="w-full">Profile Picture (max 1000kb)</label>
+                    <label className="w-full">Profile Picture (max 100kb)</label>
                     <input className="file-button" type="file" onChange={(e) => handleFile(e, "image")}/>
                     {error && <p style={{color: "red"}}>{error}</p>}
                     </div>

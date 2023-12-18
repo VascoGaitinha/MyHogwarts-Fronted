@@ -19,6 +19,7 @@ const NavBar = () => {
         axios.get(`${BACKEND}/api/users/${user._id}`)
           .then((response) => {
             setLoggedUser(response.data)
+            console.log(loggedUser)
             setLoading(false);
 
           })
@@ -61,24 +62,22 @@ const NavBar = () => {
         <img id="nav-button" src={`${loggedUser?.image}`} onClick={()=>toggleList()}/>
         <ul className="nav-droplist" id="menu" style={{opacity: `${list.opacity}`, height: `${list.height}`, display:`${list.display}`, cursor: list.open? "pointer" : "default" }}>
           <li>
-              <p className="menu-item" onClick={() => list.open && goTo(`users/${loggedUser._id}`)}>Profile</p>
-            </li>
-            <li>
-              <p className="menu-item" onClick={() => list.open &&  goTo("homepage")}>{loggedUser?.team?.name}</p>
-            </li>
-            <li>
-              <p className="menu-item" onClick={() => list.open &&  goTo("teams")}>All Teams</p>
-            </li>
-            <li>
-              <p className="menu-item" onClick={() => list.open &&  goTo("users")}>Users</p>
-            </li>
-            <li>
-              <p className="menu-item" onClick={() => list.open &&  goTo("quizz")}>Quizz</p>
-            </li>
-            <li>
-              <p className="menu-item" onClick={() => list.open && logOut()} style={{color: "red"}}>Log Out</p>
-            </li>
-          </ul>
+            <p className="menu-item" onClick={() => list.open && goTo(`users/${loggedUser._id}`)}>{loggedUser?.name}</p>
+          </li>
+          <li>
+            <p className="menu-item" onClick={() => list.open &&  goTo("quizz")}>Quizz</p>
+          </li>
+          <li>
+            <p className="menu-item" onClick={() => list.open &&  goTo("teams")}>Teams</p>
+          </li>
+          <li>
+            <p className="menu-item" onClick={() => list.open &&  goTo("users")}>Users</p>
+          </li>
+
+          <li>
+            <p className="menu-item" onClick={() => list.open && logOut()} style={{color: "red"}}>Log Out</p>
+          </li>
+        </ul>
       </div>
     </nav>
   );
