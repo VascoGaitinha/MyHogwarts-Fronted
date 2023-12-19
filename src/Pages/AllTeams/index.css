@@ -30,7 +30,7 @@
 }
 
 .team-card:hover h1 {
-  text-shadow: #B07F2E 1px 1px 50px, #B07F2E -1px -1px 50px;
+  text-shadow: #B07F2E 1px 1px 40px, #B07F2E -1px -1px 40px, black 1px 1px 5px, black -1px -1px 5px;
 }
 
 .team-card:hover .team-logo {

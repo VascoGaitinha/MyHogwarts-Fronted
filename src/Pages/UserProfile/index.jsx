@@ -60,6 +60,7 @@ return( <div>
             {loading ?
             <img className="loading-gif" src="/loading.gif"/>
             :
+            <div className="user-div">
             <div className="user-info-div">
               <h1>{profileOwner?.name}</h1>  
               <img className="profile-image" src={profileOwner?.image}></img>
@@ -69,6 +70,18 @@ return( <div>
                 <img className="team-badge" src={`/${profileOwner?.team.name}-badge.png`}/>
               </div>
               <p>Total Points: {profileOwner?.totalPoints}</p>
+            </div>
+            <div className="user-quizz-div">
+              <h2>Solved Quizzes </h2>
+              {profileOwner?.solvedQuizz.map((quizz)=>{
+                return(
+                  <div className="solved-quizz-card">
+                    <img className="quizz-icon" src={`/${quizz._id}.jpg`}/>
+                    <p>{quizz.name}</p>
+                  </div>
+                )
+              })}
+            </div>
             </div>}
             <div className="profile-banner-div" style={{backgroundImage: `url(/${profileOwner?.team.name}-banner.png)`}}>
             </div>

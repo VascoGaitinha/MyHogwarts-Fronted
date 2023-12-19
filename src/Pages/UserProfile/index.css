@@ -20,7 +20,7 @@
 
 .user-info-div{
   width: 60%;
-  margin: 0 auto;
+  margin: 0 0 0 15rem;
   }
 
 .profile-image{
@@ -41,4 +41,28 @@ h1{
 }
 p{
   font-size: 1.5rem;
+}
+
+.quizz-icon{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  margin-right: 1rem;
+}
+
+.solved-quizz-card{
+  display: flex;
+  align-items: center;
+
+}
+
+.user-div{
+  display: flex;
+  width: 100%;
+}
+
+.user-quizz-div{
+  width: 60%;
+  margin: 3rem 10rem 0 0;
+
 }

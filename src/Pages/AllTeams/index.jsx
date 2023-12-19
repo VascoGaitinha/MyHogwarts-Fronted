@@ -4,37 +4,43 @@ import { AuthContext } from "../../Context/auth.context";
 import "./index.css";
 
 const AllTeamsPage = () => {
+
     const {BACKEND} = useContext(AuthContext);
     const [teams, setTeams] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-      getData();
-      }, []);
+        console.log("PAGE LOADED")
+        processTeamPoints();
+    }, []);
+    
 
-      const getData = async () => {
-        const response = await axios.get(`${BACKEND}/api/teams`);
-        const teams = response.data;
-        setTeams(teams);
-        try{
-        teams.forEach(team => {
-          let teamPoints = 0;
-          team.members.map((member) =>{
-            teamPoints += member.totalPoints
-            console.log(team.name, teamPoints)
-            axios.put(`${BACKEND}/api/teams/${team._id}`, {totalPoints: teamPoints})
-            try{
-              console.log("Posted to", team.name, "Score is", teamPoints)
-            }catch(error){
-              console.log(error)
+      /* axios.put(`${BACKEND}/api/teams/${team._id}`, {totalPoints: teamPoints}) */
+
+
+      const processTeamPoints = async () => {
+        const dbData = await axios.get(`${BACKEND}/api/teams`);
+        setTeams(dbData.data);
+        try {
+          await Promise.all(dbData.data.map(async (team) => {
+            let teamPoints = 0;
+            team.members.forEach((member) => {
+              teamPoints += member.totalPoints;
+              console.log(member.name, "has", member.totalPoints);
+              console.log("Total", team.name, "points count is:", teamPoints);
+            });
+            try {
+              await axios.put(`${BACKEND}/api/teams/${team._id}`, { totalPoints: teamPoints });
+              console.log("POSTING DATA for", team.name);
+            } catch (error) {
+              console.error("Error updating team points:", error);
             }
-          })
-        })}
-        catch(error){
-          console.log(error)
+          }));
+        } catch (error) {
+          console.error("Error fetching team data:", error);
         }
         finally{
-        setLoading(false)
+          setLoading(false);
         }
       }
       
