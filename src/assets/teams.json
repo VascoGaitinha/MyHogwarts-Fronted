@@ -1,30 +1,20 @@
 [
     {
         "name": "Gryffindor",
-        "id": "658047d52b4665d4e8e8d6f1",
-        "logo":"/Gryffindor-logo.png",
-        "banner":"/Gryffindor-banner.png",
-        "badge":"/Gryffindor-badge.png"
+        "id": "6581e00c3d49145c526df212"
+
     },
     {
         "name": "Slytherin",
-        "id": "658047f52b4665d4e8e8d6f7",
-        "logo":"/Slytherin-logo.png",
-        "banner":"/Slytherin-banner.png",
-        "badge":"/Slytherin-badge.png"
+        "id": "6581e0143d49145c526df214"
+
     },
     {
         "name": "Hufflepuff",
-        "id": "658047e22b4665d4e8e8d6f3",
-        "logo":"/Hufflepuff-logo.png",
-        "banner":"/Hufflepuff-banner.png",
-        "badge":"/Hufflepuff-badge.png"
+        "id": "6581e0213d49145c526df216"
     },
     {
         "name": "Ravenclaw",
-        "id": "658047ec2b4665d4e8e8d6f5",
-        "logo":"/Ravenclaw-logo.png",
-        "banner":"/Ravenclaw-banner.png",
-        "badge":"/Ravenclaw-badge.png"
+        "id": "6581e0293d49145c526df218"
     }
 ]

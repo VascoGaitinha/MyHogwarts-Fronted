@@ -19,7 +19,6 @@ const NavBar = () => {
         axios.get(`${BACKEND}/api/users/${user._id}`)
           .then((response) => {
             setLoggedUser(response.data)
-            console.log(loggedUser)
             setLoading(false);
 
           })

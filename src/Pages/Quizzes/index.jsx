@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react"
-import axios from "axios"
-import { AuthContext } from "../../Context/auth.context"
-import { useNavigate } from "react-router-dom"
-import "./index.css"
-import QuizzPopover from "../../components/QuizzPopover"
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { AuthContext } from "../../Context/auth.context";
+import { useNavigate } from "react-router-dom";
+import "./index.css";
+import QuizzPopover from "../../components/QuizzPopover";
 
 const QuizzesPage = () => {
     const {BACKEND, user} = useContext(AuthContext);
@@ -21,12 +21,11 @@ const QuizzesPage = () => {
             setQuizzes(response.data)
         })
         .catch((error)=> console.log(error))
-        .finally(setLoading(false))
 
         user && axios.get(`${BACKEND}/api/users/${user._id}`)
         .then((response) => {
             setUserInDB(response.data);
-            console.log(response.data)
+            setLoading(false)
         })
         .catch((error) => console.log(error))
     },[user])
@@ -48,33 +47,36 @@ return(
     <div className="main to-blur">
         <div className="banner">
         </div>
+        {loading ? 
+          <img className="loading-gif" src="/loading.gif"/>
+        :
         <div className="quizz-list">
-    {loading?<p>loading</p>:
-    quizzes.map((quizz)=>{
-        return(
-            <div className="quizz-card" key={quizz._id}>
-                <h1>{quizz.name}</h1>
-                <div className="quizz-details">
-                <img className="quizz-image" src={`/${quizz._id}.jpg`} alt={`${quizz.name}`}/>
-                <p>{quizz.description}</p>
+        {quizzes.map((quizz)=>{
+            return(
+                <div className="quizz-card" key={quizz._id}>
+                    <h1>{quizz.name}</h1>
+                    <div className="quizz-details">
+                    <img className="quizz-image" src={`/${quizz._id}.jpg`} alt={`${quizz.name}`}/>
+                    <p>{quizz.description}</p>
+                    </div>
+                    <hr></hr>
+                    {(quizz.solvedBy.some(user => user._id === userIdToCheck))? <p className="span">You already solved this quizz!</p>
+                    :
+                    <div>
+                    <button onClick={() => handleOpenPopover(quizz)}>Go</button>
+                    </div>}
                 </div>
-                <hr></hr>
-                {(quizz.solvedBy.some(user => user._id === userIdToCheck))? <p className="span">You already solved this quizz!</p>
-                :
-                <div>
-                <button onClick={() => handleOpenPopover(quizz)}>Go</button>
-                </div>}
-            </div>
-        )
-    })
+            )
+            })}
     
-    }</div>
+    
+    </div>}
             <div className="banner">
         </div>
     </div>
     <div>
         {isPopoverOpen && selectedQuizz &&
-            <QuizzPopover quizzId={selectedQuizz._id} user={userInDb} />
+            <QuizzPopover quizzId={selectedQuizz._id} user={userInDb}/>
         }
     </div>
     </div>)

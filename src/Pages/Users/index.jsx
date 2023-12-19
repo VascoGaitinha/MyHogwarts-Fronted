@@ -9,23 +9,28 @@ const UsersPage = () => {
     const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState([]);
     const navigate = useNavigate();
+    const sortedUsers = users.sort((a,b) => (a.totalPoints > b.totalPoints) ? -1 : ((b.totalPoints > a.totalPoints) ? 1 : 0))
 
     useEffect(()=>{
         axios.get(`${BACKEND}/api/users`)
         .then((response) =>{
             setUsers(response.data)
+            setLoading(false)
         })    
         .catch((error)=>console.log(error))
-        .finally(setLoading(false))    
     },[])
 
-    const sortedUsers = users.sort((a,b) => (a.totalPoints > b.totalPoints) ? -1 : ((b.totalPoints > a.totalPoints) ? 1 : 0))
 
 
     return (
+      <div>
+
         <div className="main to-blur">
         <div className="banner">
         </div>
+        {loading ?
+        <img className="loading-gif" src="/loading.gif"/>
+        :
         <div className="user-list">
         <table>
           <thead>
@@ -55,8 +60,9 @@ const UsersPage = () => {
             ))}
           </tbody>
         </table>
-        </div>
+        </div>}
         <div className="banner">
+        </div>
         </div>
         </div>
       );

@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from "react"
-import axios from "axios"
-import { AuthContext } from "../../Context/auth.context"
-import "./index.css"
-import { useNavigate } from "react-router-dom"
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Context/auth.context";
+import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 const AllTeamsPage = () => {
     const {user} = useContext(AuthContext);

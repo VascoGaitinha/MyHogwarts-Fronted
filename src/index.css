@@ -132,3 +132,8 @@ button {
     background-color: #b07e2e13;
     scale: 0.95;
   }
+
+.loading-gif{
+  height: 15vw;
+  margin: 5rem auto;
+}

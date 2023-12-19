@@ -1,50 +1,46 @@
 .popover-main{
     position: absolute;
     width: 33.75rem;
-    height: 17rem;
+    height: 30rem;
     top: 21vh;
     left: 30vw;
     border: 1px solid #B07F2E;
     background-color: rgba(2, 0, 0, 0.781);    
     box-shadow: rgba(176, 127, 46, 1) 0px 0.1rem 0.5rem;
     text-align: center;
-    padding: 5%;
+    padding: 2% 2%;
     border-radius: 5%;
 }
 
-/* Style for radio buttons */
-
 input[type="radio"] {
-    /* Hide the default radio button */
     display: none;
   }
 .label-2 {
     position: relative;
-    padding-left: 30px; /* Adjust as needed */
+    padding-left: 30px;
     cursor: pointer;
     display: inline-block;
-    margin-bottom: 10px; /* Adjust as needed */
+    margin-bottom: 10px;
   }
   
-  /* Style for the custom radio button */
   .label-2::before {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
-    width: 20px; /* Adjust as needed */
-    height: 20px; /* Adjust as needed */
-    border: 2px solid #333; /* Border color */
-    background-color:black; /* Background color */
-    border-color: #B07F2E; /* Change to the desired color when checked */
-    border-radius: 50%; /* Make it a circle */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    background-color:black;
+    border-color: #B07F2E;
+    border-radius: 50%;
     box-sizing: border-box;
   }
   
   /* Style for the custom radio button when checked */
   input[type="radio"]:checked ~ label::before {
-    background-color: #B07F2E; /* Change to the desired color when checked */
-    border-color: whitesmoke; /* Change to the desired color when checked */
+    background-color: #B07F2E;
+    border-color: whitesmoke;
   }
   .radio-container{
     display: flex;

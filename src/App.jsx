@@ -6,7 +6,6 @@ import { AuthContext } from './Context/auth.context';
 import AllTeamsPage from './Pages/AllTeams';
 import UserProfilePage from './Pages/UserProfile';
 import UsersPage from './Pages/Users';
-import QuizzPage from './Pages/Quizz';
 import QuizzesPage from './Pages/Quizzes';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
@@ -26,7 +25,6 @@ function App() {
       <Route path="/teams" element={<AllTeamsPage/>}/>
       <Route path="/teams/:teamId" element={<AllTeamsPage/>}/>
       <Route path="/quizz" element={<QuizzesPage/>} />
-      <Route path="/quizz/:quizzId" element={<QuizzPage/>} />
       <Route path="*" element={<HomePage/>}/>
     </Routes>
     {isLoggedIn ? <Footer /> :"" }

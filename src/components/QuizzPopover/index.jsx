@@ -5,7 +5,7 @@ import { AuthContext } from "../../Context/auth.context";
 import shuffleArray from "../../utils/shuffleArray";
 
 const QuizzPopover = (props) => {
-  const { quizzId, user } = props;
+  const { quizzId, user} = props;
   const [ option, setOption ] = useState(null);
   const [ quizz, setQuizz ] = useState({});
   const { BACKEND} = useContext(AuthContext);
@@ -28,11 +28,6 @@ const QuizzPopover = (props) => {
   useEffect(()=>{
     setPoints(user.totalPoints + correctCount*100);
   },[correctCount])
-  
-  const handleNext = () => {
-      postChanges();
-      window.location.reload();
-  }
 
   const handleRadioChange = (qIndex, aIndex, correct) => {
     setOption({ qIndex, aIndex });
@@ -40,19 +35,31 @@ const QuizzPopover = (props) => {
     correct && setCorrectCount((prev)=> prev +1);
   };
 
-  const postChanges = () => {
-    const idToPush = user._id;
-    const userRequestBody= {totalPoints: points}
-    const quizzRequestBody= {memberId: idToPush}
-    axios.put(`${BACKEND}/api/users/${user._id}`, userRequestBody)
-    .then(console.log("posted points", userRequestBody))
-    .catch((error) => console.log(error));
-    axios.put(`${BACKEND}/api/quizz/${quizz._id}/adduser`, quizzRequestBody)
-    .then(console.log("posted user id", quizzRequestBody, "to", quizz._id))
-    .catch((error) => console.log(error));
+  const postChanges = async (userId, quizzId) => {
 
-  }
+    try {
+      await axios.put(`${BACKEND}/api/users/${userId}`, {totalPoints: points});
+    } catch (error) {
+      console.log(error);
+    }
 
+    try {
+      await axios.put(`${BACKEND}/api/users/${userId}/addquizz`, {quizzId: quizzId});
+    } catch (error) {
+      console.log(error);
+    }
+    
+    try {
+      await axios.put(`${BACKEND}/api/quizz/${quizzId}/adduser`, { memberId: userId });
+    } catch (error) {
+      console.log(error);
+    }
+
+    finally {
+      window.location.reload();
+    }
+  };
+  
   return (
   indexToShow <= (quizz.questions?.length - 1) ? (
     <div className="popover-main" style={{display:"block"}}>
@@ -94,7 +101,7 @@ const QuizzPopover = (props) => {
       <hr></hr>
       <h3>You got {correctCount}/{quizz.questions?.length} right answers, awarding {correctCount*100} points!</h3>
       <h3>You got {points} points so far to {user.team?.name}!</h3>
-      <button onClick={() => handleNext()}>Next</button>
+      <button onClick={() => postChanges(user._id, quizz._id)}>Next</button>
     </div>
   ));
 };

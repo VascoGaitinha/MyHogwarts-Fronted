@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/auth.context";
 import "./index.css";
-import teams from "../../assets/teams.json"
+import teams from "../../assets/teams.json";
 import defaultImage from "../../utils/defaultimage";
 import Footer from "../../components/Footer";
 
@@ -143,7 +143,6 @@ const handleLoginFormSubmit = (e) =>{
                         <button onClick={() => togglePopUp()}>Sign Up</button>
                     </div>
                 </div>
-             
     <Footer/>
                                     {/* POP UP DIV */}
     </div>
