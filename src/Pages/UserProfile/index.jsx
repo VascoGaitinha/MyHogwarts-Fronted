@@ -64,7 +64,6 @@ return(
               <p>Member since: {profileOwner?.firstJoined}</p>
               <p>Team: {profileOwner?.team.name}</p>
               <p>Total Points: {profileOwner?.totalPoints}</p>
-              <p>Correct Answers: {(profileOwner.totalPoints / profileOwner?.solvedQuizz.length)/5}%</p>
             </div>
             <div className="user-quizz-div">
               <h2>Solved Quizzes:</h2>
