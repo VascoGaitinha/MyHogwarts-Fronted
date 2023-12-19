@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+.main {
+    display: flex;
+}
+
+.profile-banner-div{
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15%;
+    margin-top: 0.2rem;
+    height: auto;
+}
+
+.team-list{
+    margin-top: 1rem;
+    display: grid;
+    height: max-content;
+    grid-template-columns: repeat(2, 1fr);
+    width: 60%;
+    gap: 10px;
+}
+
+.team-card:hover{
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.team-card:hover h1 {
+  text-shadow: #B07F2E 1px 1px 40px, #B07F2E -1px -1px 40px, black 1px 1px 5px, black -1px -1px 5px;
+}
+
+.team-card:hover .team-logo {
+    border-bottom-color: #b07e2e;
+}
+
+.team-card:active{
+    scale: 1.05;
+}

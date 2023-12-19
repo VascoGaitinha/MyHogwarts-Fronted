@@ -52,7 +52,7 @@ function UserProfilePage() {
 
   
 
-return( <div>
+return(
 
           <div className="to-blur profile-main-div ">
             <div className="profile-banner-div" style={{backgroundImage: loading ? `url("/Hogwarts-banner.png")` : `url(/${profileOwner?.team.name}-banner.png)` }}>
@@ -86,7 +86,7 @@ return( <div>
             <div className="profile-banner-div" style={{backgroundImage: `url(/${profileOwner?.team.name}-banner.png)`}}>
             </div>
           </div>
-     </div>
+
     )
 };
 

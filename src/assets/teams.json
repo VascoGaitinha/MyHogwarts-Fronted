@@ -1,20 +1,27 @@
 [
     {
         "name": "Gryffindor",
-        "id": "6581e00c3d49145c526df212"
+        "id": "6581e00c3d49145c526df212",
+        "description" :"Gryffindor is often associated with the use of courage and bravery to overcome challenges. The house values the willingness to face danger and the ability to stand up for what is right, even in the face of adversity."
 
     },
     {
         "name": "Slytherin",
-        "id": "6581e0143d49145c526df214"
+        "id": "6581e0143d49145c526df214",
+        "description" :"Slytherins are often associated with cunning and ambition. Members of this house are known for their resourcefulness and determination to achieve their goals. While some dark wizards, such as Lord Voldemort, emerged from Slytherin, many notable characters from the series, like Severus Snape and Horace Slughorn, were also Slytherins."
+
 
     },
     {
         "name": "Hufflepuff",
-        "id": "6581e0213d49145c526df216"
+        "id": "6581e0213d49145c526df216",
+        "description" :"Hufflepuff is often associated with a strong sense of community and friendship. Members of Hufflepuff are known for their kindness and willingness to help others. While the house may not receive as much attention in the series as some of the others, it plays an essential role in the overall balance of Hogwarts."
+
     },
     {
         "name": "Ravenclaw",
-        "id": "6581e0293d49145c526df218"
+        "id": "6581e0293d49145c526df218",
+        "description" :"Ravenclaws are often associated with their academic prowess and curiosity. Members of Ravenclaw house are known for their love of books, wit, and pursuit of intellectual challenges. The house has produced many skilled witches and wizards who excel in various fields."
+
     }
 ]

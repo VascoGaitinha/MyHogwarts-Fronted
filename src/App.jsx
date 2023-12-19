@@ -9,6 +9,7 @@ import UsersPage from './Pages/Users';
 import QuizzesPage from './Pages/Quizzes';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import TeamPage from './Pages/Team';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
       <Route path="/users" element={<UsersPage/>} />
       <Route path="/users/:userId" element={<UserProfilePage/>}/>
       <Route path="/teams" element={<AllTeamsPage/>}/>
-      <Route path="/teams/:teamId" element={<AllTeamsPage/>}/>
+      <Route path="/teams/:teamId" element={<TeamPage/>}/>
       <Route path="/quizz" element={<QuizzesPage/>} />
       <Route path="*" element={<HomePage/>}/>
     </Routes>

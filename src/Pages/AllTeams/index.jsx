@@ -2,21 +2,19 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../Context/auth.context";
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 const AllTeamsPage = () => {
 
     const {BACKEND} = useContext(AuthContext);
     const [teams, setTeams] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log("PAGE LOADED")
         processTeamPoints();
     }, []);
-    
-
-      /* axios.put(`${BACKEND}/api/teams/${team._id}`, {totalPoints: teamPoints}) */
-
 
       const processTeamPoints = async () => {
         const dbData = await axios.get(`${BACKEND}/api/teams`);
@@ -54,7 +52,7 @@ return( <div className="to-blur main">
           {loading?<p>loading</p>:
           teams.map((team)=>{
               return(
-                  <div className="team-card" key={team._id}>
+                  <div className="team-card" key={team._id} onClick={() => navigate(`/teams/${team._id}`)}>
                       <h1>{team.name}</h1>
                       <img src={`/${team.name}-logo.png`} />
                       <p>Total Points: {team.totalPoints}</p>

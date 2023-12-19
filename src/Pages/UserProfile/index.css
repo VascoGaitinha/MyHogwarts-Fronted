@@ -3,19 +3,12 @@
     height: 100vh;
   }
 
-.banner{
-    background-image: url("/Hogwarts-banner.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 10vw;
-    margin-top: 0.2rem;
-}
-
 .profile-banner-div{
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 15%;
-    margin-top: 0.2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15%;
+  margin-top: 0.2rem;
+  height: auto;
   }
 
 .user-info-div{
