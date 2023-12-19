@@ -62,14 +62,12 @@ return(
               <h1>{profileOwner?.name}</h1>  
               <img className="profile-image" src={profileOwner?.image}></img>
               <p>Member since: {profileOwner?.firstJoined}</p>
-              <div style={{display: "flex", alignItems: "center"}}>
-                <p>Team: {profileOwner?.team.name}</p>
-                <img className="team-badge" src={`/${profileOwner?.team.name}-badge.png`}/>
-              </div>
+              <p>Team: {profileOwner?.team.name}</p>
               <p>Total Points: {profileOwner?.totalPoints}</p>
+              <p>Correct Answers: {(profileOwner.totalPoints / profileOwner?.solvedQuizz.length)/5}%</p>
             </div>
             <div className="user-quizz-div">
-              <h2>Solved Quizzes </h2>
+              <h2>Solved Quizzes:</h2>
               {profileOwner?.solvedQuizz.map((quizz)=>{
                 return(
                   <div className="solved-quizz-card">
