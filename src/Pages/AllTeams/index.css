@@ -12,10 +12,13 @@
     background-repeat: no-repeat;
     width: 15%;
     margin-top: 0.2rem;
+    height: auto;
 }
 
 .team-list{
+    margin-top: 1rem;
     display: grid;
+    height: max-content;
     grid-template-columns: repeat(2, 1fr);
     width: 60%;
     gap: 10px;

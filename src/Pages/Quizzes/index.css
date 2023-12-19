@@ -10,6 +10,7 @@
     background-repeat: no-repeat;
     width: 15%;
     margin-top: 0.2rem;
+    height: auto;
 }
 
 .quizz-list{
@@ -20,7 +21,7 @@
     justify-content: space-evenly;
     text-align: left;
     overflow-y: scroll;
-    height:80vh;
+    height:auto;
 }
 
 .quizz-list::-webkit-scrollbar {
