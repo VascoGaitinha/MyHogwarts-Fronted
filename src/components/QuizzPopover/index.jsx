@@ -12,6 +12,7 @@ const QuizzPopover = (props) => {
   const [ indexToShow, setIndexToShow ] = useState(0);
   const [ points, setPoints ] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
 
 
 
@@ -96,12 +97,13 @@ const QuizzPopover = (props) => {
     </div>
 
   ):(
+    indexToShow &&
     <div className="popover-main">
       <h2>Congratulations ! You solved this quizz !</h2>
       <hr></hr>
       <h3>You got {correctCount}/{quizz.questions?.length} right answers, awarding {correctCount*100} points!</h3>
       <h3>You got {points} points so far to {user.team?.name}!</h3>
-      <button onClick={() => postChanges(user._id, quizz._id)}>Next</button>
+      <button hidden={isButtonDisabled} onClick={() => {postChanges(user._id, quizz._id), setButtonDisabled(true)}}>Next</button>
     </div>
   ));
 };

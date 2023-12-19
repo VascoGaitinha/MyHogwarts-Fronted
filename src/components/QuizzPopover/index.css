@@ -51,3 +51,11 @@ input[type="radio"] {
   .label-2{
     font-size: 1.5rem;
   }
+
+  .small-loading-gif{
+    width: 14rem;
+    height: 10rem;
+    border-radius: 5%;
+    opacity: 0.75;
+    margin-top: 3rem;
+  }

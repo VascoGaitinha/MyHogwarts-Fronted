@@ -15,13 +15,7 @@ const AllTeamsPage = () => {
 
 
 return( <div className="to-blur main">
-        <div className="banner">
-        </div>
-        <div className="all-list">
-          <h1>Hi</h1>
-        </div>
-        <div className="banner">
-        </div>
+        <img className="loading-gif" src="/loading.gif"/>
     </div>)
 }
 
