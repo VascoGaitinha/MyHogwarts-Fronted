@@ -7,19 +7,20 @@ import "./index.css";
 
 
 function UserProfilePage() {
-  const { isLoggedIn, user, logOut, BACKEND } = useContext(AuthContext);
+  const { user, BACKEND } = useContext(AuthContext);
   const[loading,setLoading] = useState(true);
   const[profileOwner, setProfileOwner] = useState(null);
   const idToGet = useParams().userId;
 
   const handleFirstLoggin = (user) => {
-  profileOwner?.firstLoggin && 
+  profileOwner?.firstLoggin ?
     axios.put(`${BACKEND}/api/teams/${user.team._id}/adduser`, { memberId: user._id })
     .then(response => {
       console.log(response.data);
       axios.put(`${BACKEND}/api/users/${user._id}`, { firstLoggin: false })
       .then(response => {
         console.log(response.data);
+        setLoading(false);
       })
       .catch(error => {
         console.error(error);
@@ -27,9 +28,9 @@ function UserProfilePage() {
     })
     .catch(error => {
       console.error(error);
-    });
-
-
+    })
+    :
+    setLoading(false);
   }
   
   useEffect(() => {
@@ -37,15 +38,11 @@ function UserProfilePage() {
       axios.get(`${BACKEND}/api/users/${idToGet}`)
         .then((response) => {
           setProfileOwner(response.data)
-          setLoading(false);
           handleFirstLoggin(response.data);
         })
         .catch((error) => {
-          console.error("Error fetching user data");
-          setLoading(false);
+          console.log(error);
         });
-    } else {
-      setLoading(true);
     }
   }, [user, loading]); 
 
@@ -55,7 +52,7 @@ function UserProfilePage() {
 return(
 
           <div className="to-blur profile-main-div ">
-            <div className="profile-banner-div" style={{backgroundImage: loading ? `url("/Hogwarts-banner.png")` : `url(/${profileOwner?.team.name}-banner.png)` }}>
+            <div className="profile-banner-div" style={{backgroundImage: loading ? `url("/Hogwarts-banner.png")` : `url(/${profileOwner.team.name}-banner.png)` }}>
             </div>
             {loading ?
             <img className="loading-gif" src="/loading.gif"/>
@@ -83,7 +80,7 @@ return(
               })}
             </div>
             </div>}
-            <div className="profile-banner-div" style={{backgroundImage: `url(/${profileOwner?.team.name}-banner.png)`}}>
+            <div className="profile-banner-div" style={{backgroundImage: loading ? `url("/Hogwarts-banner.png")` : `url(/${profileOwner.team.name}-banner.png)` }}>
             </div>
           </div>
 
