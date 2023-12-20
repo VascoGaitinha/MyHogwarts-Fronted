@@ -16,7 +16,6 @@ const TeamPage = () => {
 
 
     useEffect(() =>{
-      console.log(foundTeam)
       axios.get(`${BACKEND}/api/teams/${teamId}`)
         .then((response)=> {setTeam(response.data)
         setLoading(false)})
