@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../Context/auth.context";
 import { useNavigate } from "react-router-dom";
-import "./index.css";
 import QuizzPopover from "../../components/QuizzPopover";
+import "./index.css";
+
 
 const QuizzesPage = () => {
     const {BACKEND, user} = useContext(AuthContext);
@@ -44,7 +45,7 @@ const QuizzesPage = () => {
 
 return( 
     <div>
-    <div className="main to-blur">
+    <div className="main-quizz-div to-blur">
         <div className="banner">
         </div>
         {loading ? 

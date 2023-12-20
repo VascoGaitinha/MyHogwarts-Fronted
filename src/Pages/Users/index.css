@@ -1,14 +1,7 @@
-.main {
+.main-users-div {
     display: flex;
-    height: 100vh;
-}
-
-.banner{
-    background-image: url("/Hogwarts-banner.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 10vw;
-    margin-top: 0.2rem;
+    justify-content: space-between;
+    height: 25vw;
 }
 
 .user-list{
@@ -16,7 +9,24 @@
     flex-direction: column;
     align-items: center;
     text-align: left;
+    height: 83vh;
+    overflow-y: scroll;
 }
+
+.user-list {
+    overflow-y: scroll;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: transparent transparent; /* Firefox */
+  
+    /* WebKit browsers (Chrome, Safari) */
+    &::-webkit-scrollbar {
+      width: 0.5rem; /* Adjust width as needed */
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent; /* Make thumb transparent */
+    }
+  }
 
 .user-card {
     width: 33%;

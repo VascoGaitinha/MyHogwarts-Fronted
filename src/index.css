@@ -8,13 +8,6 @@
     src: url(./assets/hp.TTF);
 }
 
-#root{
-  width: 100%;
-  overflow-x: hidden;
-  margin: 0 auto;
-  max-width: 1920px;
-}
-
 body, html{
     margin:0;
     letter-spacing: 0.1rem;
@@ -137,3 +130,18 @@ button {
   height: 15vw;
   margin: 5rem auto;
 }
+
+.banner{
+  background-image: url("/Hogwarts-banner.png");  
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15vw;
+  margin-top: 0.2rem;
+}
+
+.profile-banner-div{
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15vw;
+  margin-top: 0.2rem;
+  }

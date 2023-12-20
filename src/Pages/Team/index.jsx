@@ -29,7 +29,7 @@ const TeamPage = () => {
 
 
       
-return( <div className="to-blur main">
+return( <div className="to-blur main-teams-div">
           <div className="profile-banner-div" style={{backgroundImage: loading ? `url("/Hogwarts-banner.png")` : `url(/${team?.name}-banner.png)` }}>
           </div>
           {loading ?

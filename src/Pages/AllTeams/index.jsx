@@ -46,7 +46,7 @@ const AllTeamsPage = () => {
   };
 
   return (
-    <div className="to-blur main">
+    <div className="to-blur main-teams-div">
       <div className="banner"></div>
       {loading ? (
         <img className="loading-gif" src="/loading.gif" alt="loading" />
@@ -59,7 +59,7 @@ const AllTeamsPage = () => {
               onClick={() => navigate(`/teams/${team._id}`)}
             >
               <h1>{team.name}</h1>
-              <img src={`/${team.name}-logo.png`} alt={`${team.name} logo`} />
+              <img className="team-logo"src={`/${team.name}-logo.png`} alt={`${team.name} logo`} />
               <p>Total Points: {team.totalPoints}</p>
             </div>
           ))}

@@ -1,17 +1,12 @@
 .profile-main-div {
     display: flex;
+    height: 25vw;
   }
 
-.profile-banner-div{
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 15%;
-  margin-top: 0.2rem;
-  height: auto;
-  }
+
 
 .user-info-div{
-  width: 60%;
+  width: 75%;
   margin: 0 0 0 15rem;
   }
 

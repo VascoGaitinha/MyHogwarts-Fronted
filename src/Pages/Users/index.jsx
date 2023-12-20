@@ -25,7 +25,7 @@ const UsersPage = () => {
     return (
       <div>
 
-        <div className="main to-blur">
+        <div className="main-users-div to-blur">
         <div className="banner">
         </div>
         {loading ?

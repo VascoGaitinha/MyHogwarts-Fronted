@@ -3,19 +3,11 @@
     height: 100vh;
 }
 
-.banner{
-    background-image: url("/Hogwarts-banner.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 15%;
-    height: 100vh;
-    margin-top: 0.2rem;
-}
 
 .all-list{
     display: flex;
     flex-direction: column;
-    width: 60%;
+    min-width: 60%;
     gap: 10px;
     margin:0 auto;
     text-align: center;
