@@ -74,7 +74,7 @@ th, td, tr {
 @media (max-width: 426px) {
   .user-list{
     width: 100%;
-    margin: 0 1rem;
+    margin: 0rem;
     }
 
     h1{font-size: 2rem;}
