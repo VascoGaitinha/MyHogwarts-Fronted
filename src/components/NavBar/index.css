@@ -29,7 +29,7 @@ nav {
     align-items: center;
 }
 .nav-brand img{
-    height: 7rem;
+    height: 5rem;
     width: auto;
 }
 
@@ -73,7 +73,7 @@ li{
 }
 
 nav h1{
-    font-size: 4em;
+    font-size: 3em;
     text-shadow: #B07F2E 1px 1px, #B07F2E -1px -1px;
 }
 
