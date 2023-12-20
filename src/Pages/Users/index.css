@@ -15,16 +15,15 @@
 
 .user-list {
     overflow-y: scroll;
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: transparent transparent; /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
   
-    /* WebKit browsers (Chrome, Safari) */
     &::-webkit-scrollbar {
-      width: 0.5rem; /* Adjust width as needed */
+      width: 0.5rem;
     }
   
     &::-webkit-scrollbar-thumb {
-      background-color: transparent; /* Make thumb transparent */
+      background-color: transparent;
     }
   }
 
@@ -70,3 +69,14 @@ th {
 th, td, tr {
   padding: 0 1rem;
 }
+
+
+@media (max-width: 426px) {
+  .user-list{
+    width: 100%;
+    margin: 0 1rem;
+    }
+
+    h1{font-size: 2rem;}
+    h2{font-size: 1rem;}
+  }

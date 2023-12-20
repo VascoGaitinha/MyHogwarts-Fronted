@@ -36,12 +36,12 @@ return( <div className="to-blur main-teams-div">
             <img className="loading-gif" src="/loading.gif"/>
             :
             <div className="team-div">
-            <div className="user-info-div">
+            <div className="team-info-div">
               <h1>{team.name}</h1> 
               <p>{foundTeam?.description}</p>
               <p>Total Points: {team.totalPoints}</p>
             </div>
-            <div className="user-info-div">
+            <div className="team-member-div">
         <table>
           <tbody>
             {sortedUsers?.map((user, index) => (

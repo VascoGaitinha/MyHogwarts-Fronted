@@ -37,8 +37,8 @@
 .quizz-details{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 80%;
-
 }
 
 .quizz-details p{
@@ -63,3 +63,25 @@ hr {
     color:#B07F2E;
     opacity: 0.66;
 }
+
+
+@media (max-width: 426px) {
+    .quizz-list{
+      width: 100%;
+      margin: 0 2rem;
+      }
+
+    .quizz-image{
+        width: 4rem;
+        height: 3rem;
+        border: 1px double #B07F2E ;
+        border-radius: 5%;
+    }
+
+    .quizz-details{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    }

@@ -20,7 +20,7 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    width:80%
+    width:80%;
 }
 
 
@@ -64,3 +64,44 @@ form{
 }
 
 
+
+
+@media (max-width: 426px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .left-div{
+        position: absolute;
+        background-image: url("/f449d5c2b4f0b917b946d698272cd7ea.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        opacity: 0.25;
+    }
+
+  }
+
+  .right-div{
+    z-index: 1;
+}
+
+
+.form-div{
+    background-color: rgba(2, 0, 0, 0.55);    
+}
+
+.pop-up-div{
+    position: absolute;
+    left:1rem;
+    width: 95%;
+    border: 1px solid #B07F2E;
+    background-color: rgba(2, 0, 0, 0.55);    
+    box-shadow: rgba(176, 127, 46, 1) 0px 0.1rem 0.5rem;
+    text-align: center;
+    border-radius: 5%;
+}

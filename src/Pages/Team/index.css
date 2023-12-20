@@ -12,16 +12,26 @@
 }
 
 
+@media (max-width: 426px) {
 
-.team-card:hover{
-    cursor: pointer;
-    scale: 1.1;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-.team-card:hover h1 {
-  text-shadow: #B07F2E 1px 1px 40px, #B07F2E -1px -1px 40px, black 1px 1px 5px, black -1px -1px 5px;
-}
+    .main-teams-div{
+        width: 90%;
+        margin: 0 1rem;
+    }
 
-.team-card:active{
-    scale: 1.05;
-}
+    .team-div{
+        width: 90%;
+    }
+
+    .team-info-div{
+        width: 90%;
+    }
+
+    .team-member-div{
+        width: 90%;
+    }
+    }

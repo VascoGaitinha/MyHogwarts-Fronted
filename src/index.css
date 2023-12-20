@@ -145,3 +145,31 @@ button {
   width: 15vw;
   margin-top: 0.2rem;
   }
+
+
+
+
+
+
+  @media (max-width: 426px) {
+.banner{
+  display: none;
+  z-index: -1;
+}
+
+.profile-banner-div{
+  display: none;
+  z-index: -1;
+  }
+  
+  
+  body, html{
+    min-width: 100vw;
+  }
+
+*{
+  box-sizing: border-box;
+}
+
+}
+

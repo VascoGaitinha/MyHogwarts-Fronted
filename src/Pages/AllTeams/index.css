@@ -44,3 +44,21 @@
 .team-card:active{
     scale: 1.05;
 }
+
+@media (max-width: 426px) {
+
+  .team-list{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+
+}
+
+.main-teams-div {
+  display: flex;
+  justify-content: center
+}
+
+
+
+  }
