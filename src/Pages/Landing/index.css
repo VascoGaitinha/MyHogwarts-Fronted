@@ -20,7 +20,7 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    width:80%;
+    width:80%
 }
 
 
@@ -63,9 +63,6 @@ form{
     margin:  2%;
 }
 
-
-
-
 @media (max-width: 426px) {
     .main {
         display: flex;
@@ -84,7 +81,7 @@ form{
         opacity: 0.25;
     }
 
-  }
+
 
   .right-div{
     z-index: 1;
@@ -104,4 +101,5 @@ form{
     box-shadow: rgba(176, 127, 46, 1) 0px 0.1rem 0.5rem;
     text-align: center;
     border-radius: 5%;
+}
 }
